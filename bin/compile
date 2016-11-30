@@ -48,6 +48,8 @@ dpkg -x $PACKAGE_FILE $BUILD_DIR/.apt/
 cd $BUILD_DIR/.apt/usr/bin
 echo $BUILD_DIR/.apt/usr/bin
 ln -s ../../opt/google/chrome/google-chrome google-chrome
+cd $HOME
+ln -s ../../opt/google/chrome/google-chrome google-chrome
 
 
 topic "Downloading and installing ChromeDriver"
