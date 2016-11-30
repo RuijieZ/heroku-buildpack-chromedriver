@@ -46,6 +46,7 @@ curl -s -L -z $PACKAGE_FILE -o $PACKAGE_FILE $PACKAGE 2>&1 | indent
 topic "Installing $PACKAGE"
 dpkg -x $PACKAGE_FILE $BUILD_DIR/.apt/
 cd $BUILD_DIR/.apt/usr/bin
+ehco $BUILD_DIR/.apt/usr/bin
 ln -s ../../opt/google/chrome/google-chrome google-chrome
 
 
