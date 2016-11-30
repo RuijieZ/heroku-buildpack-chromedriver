@@ -60,7 +60,11 @@ rm $BUILD_DIR/vendor/chromedriver/chromedriver.zip
 ls -lah $BUILD_DIR/vendor/chromedriver
 
 topic "Writing profile script"
+
+PROFILE_PATH="$BUILD_DIR/.profile.d/chromedriver.sh"
 mkdir -p $BUILD_DIR/.profile.d
-cat <<EOF >$BUILD_DIR/.profile.d/chromedriver.sh
-export PATH="\$HOME/vendor/chromedriver:\$PATH"
-EOF
+echo 'export PATH="\$HOME/vendor/chromedriver:\$PATH"'>> $PROFILE_PATH
+echo 'export LD_LIBRARY_PATH=".apt/usr/lib/x86_64-linux-gnu:.apt/usr/lib:\$LD_LIBRARY_PATH"'>> $PROFILE_PATH
+echo 'export INCLUDE_PATH=".apt/usr/include:\$INCLUDE_PATH"'>> $PROFILE_PATH
+echo 'export CPATH="\$INCLUDE_PATH"'>> $PROFILE_PATH
+echo 'export CPPPATH="\$INCLUDE_PATH"'>> $PROFILE_PATH
